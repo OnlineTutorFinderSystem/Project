@@ -3,12 +3,14 @@ package com.cg.project.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author rahul
  *
  */
 @Entity
+@Table(name="admin")
 public class Admin {
 	@Id
 	@GeneratedValue
@@ -73,7 +75,7 @@ public class Admin {
 
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
+		 
 	}
 
 }

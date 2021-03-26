@@ -24,4 +24,13 @@ public interface AdminService {
 	public Parent viewParentsByName(Parent parent);
 
 	public List<Parent> viewAllParents(Parent parent);
+
+	public List<Admin> getAllAdmins();
+
+	public List<Admin> getAllByAdminName(String adminName);
+
+	public Admin getByAdminEmailId(String adminEmailId);
+
+	public Admin getByAdminPhoneNo(String adminPhoneNo);
+
 }
