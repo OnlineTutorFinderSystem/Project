@@ -1,5 +1,6 @@
 package com.cg.project.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,24 @@ public class BookingServiceImpl implements BookingService {
 	public Optional<Booking> getBookingById(int id) {
 		// TODO Auto-generated method stub
 		return dao.findById (id);
+	}
+
+	@Override
+	public List<Booking> getBookingByPname(String pname) {
+		// TODO Auto-generated method stub
+		return dao.findBypname(pname);
+	}
+
+	@Override
+	public List<Booking> getBookingBysub(String sub) {
+		// TODO Auto-generated method stub
+		return dao.findBysub(sub);
+	}
+
+	@Override
+	public List<Booking> getAllBookings() {
+		// TODO Auto-generated method stub
+		return dao.findAll();
 	}
 
 }
