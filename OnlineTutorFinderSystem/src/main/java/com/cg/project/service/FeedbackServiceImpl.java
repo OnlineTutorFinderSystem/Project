@@ -1,5 +1,6 @@
 package com.cg.project.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,11 @@ public class FeedbackServiceImpl implements FeedbackService {
 	public void deleteFeedback(int fid) {
 		// TODO Auto-generated method stub
 		dao.deleteById(fid);
+	}
+
+	@Override
+	public List<Feedback> getByRating(int rating) {
+		// TODO Auto-generated method stub
+		return dao.findByrating(rating);
 	}
 }
