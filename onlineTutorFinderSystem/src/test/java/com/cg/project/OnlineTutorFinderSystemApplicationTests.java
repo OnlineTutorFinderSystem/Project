@@ -81,4 +81,13 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertEquals(result, list1);
 	}
 
+	@Test
+	void testFindAllEBook() {
+		EBook EBook = new EBook(5, "history", 450, "X", 2006, "RAJAT");
+		List<EBook> list3 = new ArrayList<EBook>();
+		list3.add(EBook);
+		when(dao.findAll()).thenReturn(list3);
+		List<EBook> result = service.getAllEBook();
+		assertEquals(result, list3);
+	}
 }
