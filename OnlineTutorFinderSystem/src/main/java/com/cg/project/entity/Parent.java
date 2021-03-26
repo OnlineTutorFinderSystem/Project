@@ -14,7 +14,7 @@ public class Parent {
 	private String parentPhone;
 
 	public Parent() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getParentId() {
