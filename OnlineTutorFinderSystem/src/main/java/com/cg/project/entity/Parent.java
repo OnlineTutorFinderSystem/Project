@@ -11,7 +11,7 @@ public class Parent {
 	private int parentId;
 	private String parentName;
 	private String parentEmail;
-	private int parentPhone;
+	private String parentPhone;
 
 	public Parent() {
 		// TODO Auto-generated constructor stub
@@ -41,15 +41,15 @@ public class Parent {
 		this.parentEmail = parentEmail;
 	}
 
-	public int getParentPhone() {
+	public String getParentPhone() {
 		return parentPhone;
 	}
 
-	public void setParentPhone(int parentPhone) {
+	public void setParentPhone(String parentPhone) {
 		this.parentPhone = parentPhone;
 	}
 
-	public Parent(int parentId, String parentName, String parentEmail, int parentPhone) {
+	public Parent(int parentId, String parentName, String parentEmail, String parentPhone) {
 		super();
 		this.parentId = parentId;
 		this.parentName = parentName;
@@ -62,7 +62,7 @@ public class Parent {
 		return parentId + " " + parentName + " " + parentEmail + " " + parentPhone;
 	}
 
-	public Parent(String parentName, String parentEmail, int parentPhone) {
+	public Parent(String parentName, String parentEmail, String parentPhone) {
 		super();
 		this.parentName = parentName;
 		this.parentEmail = parentEmail;

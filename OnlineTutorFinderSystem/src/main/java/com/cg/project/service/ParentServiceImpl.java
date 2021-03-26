@@ -1,5 +1,6 @@
 package com.cg.project.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,21 @@ public class ParentServiceImpl implements ParentService {
 	@Override
 	public Optional<Parent> getParentById(int parentId) {
 		return dao.findById(parentId);
+	}
+
+	@Override
+	public List<Parent> getParentByEmail(String parentEmail) {
+		return dao.findByparentEmail(parentEmail);
+	}
+
+	@Override
+	public List<Parent> getParentByPhone(String parentPhone) {
+		return dao.findByparentPhone(parentPhone);
+	}
+
+	@Override
+	public List<Parent> getAllParents() {
+		return dao.findAll();
 	}
 
 }

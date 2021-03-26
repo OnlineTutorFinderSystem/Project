@@ -1,5 +1,6 @@
 package com.cg.project.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,8 @@ public class ParentController {
 	@Autowired
 	ParentServiceImpl service;
 
-	@GetMapping("/getParent/{pid}")
-	public Optional<Parent> getParentById(@PathVariable("eid") int parentId) {
+	@GetMapping("/getParentById/{pid}")
+	public Optional<Parent> getParentById(@PathVariable("pid") int parentId) {
 		return service.getParentById(parentId);
 	}
 
@@ -38,8 +39,23 @@ public class ParentController {
 	}
 
 	@DeleteMapping("/deleteParent/{pid}")
-	public void deleteParent(int parentId) {
+	public void deleteParent(@PathVariable("pid") int parentId) {
 		service.deleteParent(parentId);
+	}
+
+	@GetMapping("/getParentByEmail/{pmail}")
+	public List<Parent> getParentByEmail(@PathVariable("pmail") String parentEmail) {
+		return service.getParentByEmail(parentEmail);
+	}
+
+	@GetMapping("/getParentByPhone/{pnumber}")
+	public List<Parent> getParentByPhone(@PathVariable("pnumber") String parentPhone) {
+		return service.getParentByPhone(parentPhone);
+	}
+
+	@GetMapping("/getAllParents")
+	public List<Parent> getAllParents() {
+		return service.getAllParents();
 	}
 
 }
