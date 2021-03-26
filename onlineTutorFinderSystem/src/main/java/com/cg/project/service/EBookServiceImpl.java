@@ -11,57 +11,53 @@ import org.springframework.stereotype.Service;
 import com.cg.project.entity.EBook;
 import com.cg.project.repository.EBookDao;
 
-
-
-
-
-@Service("service") 
+@Service("service")
 @Transactional
 public class EBookServiceImpl implements EBookService {
 
 	@Autowired
 	EBookDao dao;
-	public EBook addEBook(EBook EBook) {
-		// TODO Auto-generated method stub
-		return dao.save(EBook);
+
+	public EBook addEBook(EBook ebook) {
+
+		return dao.save(ebook);
 	}
 
 	@Override
-	public EBook updateEBook(EBook EBook) {
-		// TODO Auto-generated method stub
-		return dao.save(EBook);
+	public EBook updateEBook(EBook ebook) {
+
+		return dao.save(ebook);
 	}
 
 	@Override
-	public void removeEBook(int EBookId) {
-	
-		dao.deleteById(EBookId);
+	public void removeEBook(int ebookId) {
+
+		dao.deleteById(ebookId);
 	}
 
 	@Override
-	
-	public List<EBook> getEBookByName(String EBookName){
-		// TODO Auto-generated method stub
-		 return dao.findByEBookName(EBookName);
+
+	public List<EBook> getEBookByName(String ebookName) {
+
+		return dao.findByebookName(ebookName);
 	}
 
 	@Override
 	public List<EBook> getAllEBook() {
-		// TODO Auto-generated method stub
-		 return dao.findAll();
+
+		return dao.findAll();
 	}
 
 	@Override
-	public Optional<EBook> getEBookById(int EBookId) {
-		// TODO Auto-generated method stub
-		return dao.findById(EBookId);
+	public Optional<EBook> getEBookById(int ebookId) {
+
+		return dao.findById(ebookId);
 	}
 
 	@Override
-	public List<EBook> getEBookByPrice(int EBookPrice) {
-		// TODO Auto-generated method stub
-		return dao.findByeBookPrice(EBookPrice);
+	public List<EBook> getEBookByPrice(int ebookPrice) {
+
+		return dao.findByebookPrice(ebookPrice);
 	}
+
 }
-
-

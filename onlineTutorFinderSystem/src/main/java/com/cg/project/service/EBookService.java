@@ -4,31 +4,21 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cg.project.entity.EBook;
-import com.cg.project.entity.EBook;
 
+public interface EBookService {
 
-	public interface EBookService {
+	EBook addEBook(EBook ebook);
 
-		EBook addEBook(EBook EBook);
+	EBook updateEBook(EBook ebook);
 
-		EBook updateEBook(EBook EBook);
+	void removeEBook(int ebookId);
 
-		void removeEBook(int EBookId);
+	List<EBook> getEBookByName(String ebookName);
 
-		List<EBook> getEBookByName(String EBookName);
+	List<EBook> getEBookByPrice(int ebookPrice);
 
-		List<EBook> getEBookByPrice(int EBookPrice);
-		
-		List<EBook> getAllEBook();
+	List<EBook> getAllEBook();
 
-		Optional<EBook> getEBookById(int EBookId);
+	Optional<EBook> getEBookById(int ebookId);
 
-
-		
-
-		
-
-		
 }
-
-
