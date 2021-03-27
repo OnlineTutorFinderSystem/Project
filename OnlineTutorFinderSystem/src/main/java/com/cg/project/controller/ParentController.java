@@ -69,17 +69,29 @@ public class ParentController {
 
 	@GetMapping("/getParentByEmail/{pmail}")
 	public List<Parent> getParentByEmail(@PathVariable("pmail") String parentEmail) {
-		return service.getParentByEmail(parentEmail);
+		List<Parent> test = service.getParentByEmail(parentEmail);
+		if (test.isEmpty()) {
+			throw new GlobalException("Email is not present");
+		}
+		return test;
 	}
 
 	@GetMapping("/getParentByPhone/{pnumber}")
 	public List<Parent> getParentByPhone(@PathVariable("pnumber") String parentPhone) {
-		return service.getParentByPhone(parentPhone);
+		List<Parent> test = service.getParentByPhone(parentPhone);
+		if (test.isEmpty()) {
+			throw new GlobalException("Phone number not present");
+		}
+		return test;
 	}
 
 	@GetMapping("/getAllParents")
 	public List<Parent> getAllParents() {
-		return service.getAllParents();
+		List<Parent> test = service.getAllParents();
+		if (test.isEmpty()) {
+			throw new GlobalException("Table is empty.");
+		}
+		return test;
 	}
 
 }
