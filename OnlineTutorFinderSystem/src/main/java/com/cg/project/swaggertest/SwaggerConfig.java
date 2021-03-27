@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("employeeCRUD with dataJPA").description("sprint 1 project")
-				.termsOfServiceUrl("http://www.google.com").contact("ss6164@srmist.edu.in").license("NA")
+				.termsOfServiceUrl("http://www.google.com").license("NA")
 				.licenseUrl("NA").version("1.0").build();
 	}
 
