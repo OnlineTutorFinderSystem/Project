@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.project.entity.DemoSession;
+import com.cg.project.exceptions.GlobalException;
 import com.cg.project.service.DemoSessionServiceImpl;
 
 @RestController
@@ -25,21 +26,38 @@ public class DemoSessionController {
 
 	@GetMapping("/getSessionById/{sid}")
 	public Optional<DemoSession> getParentById(@PathVariable("sid") int sessionId) {
-		return service.getSessionById(sessionId);
+		Optional<DemoSession> test = service.getSessionById(sessionId);
+		if (test.isEmpty()) {
+			throw new GlobalException("id is not present");
+		}
+
+		return test;
 	}
 
 	@PostMapping("/addSession")
 	public DemoSession addSession(@RequestBody DemoSession session) {
-		return service.addSession(session);
+		DemoSession test = service.addSession(session);
+		if (test.getParentName() == null) {
+			throw new GlobalException("Enter values for body correctly");
+		}
+		return test;
 	}
 
 	@PutMapping("/updateSession")
 	public DemoSession updateParent(@RequestBody DemoSession session) {
-		return service.updateSession(session);
+		DemoSession test = service.updateSession(session);
+		if (test.getSessionId() == 0) {
+			throw new GlobalException("Id not present.");
+		}
+		return test;
 	}
 
 	@DeleteMapping("/deleteSession/{sid}")
 	public void deleteParent(@PathVariable("sid") int sessionId) {
+		Optional<DemoSession> test = service.getSessionById(sessionId);
+		if (test.isEmpty()) {
+			throw new GlobalException("id is not present for deleting");
+		}
 		service.deleteSession(sessionId);
 	}
 
