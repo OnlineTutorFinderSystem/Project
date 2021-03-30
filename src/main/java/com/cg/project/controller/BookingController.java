@@ -89,7 +89,11 @@ public class BookingController {
 
 	@GetMapping("/getAllBookings")
 	public List<Booking> getAllBookings() {
-		return service.getAllBookings();
+		List<Booking> test = service.getAllBookings();
+		if (test.isEmpty()) {
+			throw new GlobalException("Table is Empty");
+		}
+		return test;
 	}
 
 }
