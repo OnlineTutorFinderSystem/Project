@@ -1,8 +1,8 @@
 package com.cg.project.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.annotations.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,6 +59,24 @@ public class DemoSessionController {
 			throw new GlobalException("id is not present for deleting");
 		}
 		service.deleteSession(sessionId);
+	}
+
+	@GetMapping("/getAllSessions")
+	public List<DemoSession> getAllSessions() {
+		List<DemoSession> test = service.getAllSessions();
+		if (test.isEmpty()) {
+			throw new GlobalException("Table is empty.");
+		}
+		return test;
+	}
+
+	@GetMapping("/getSessionByDate/{date}")
+	public List<DemoSession> getSessionByDate(@PathVariable("date") String date) {
+		List<DemoSession> test = service.getByDate(date);
+		if (test.isEmpty()) {
+			throw new GlobalException("Email is not present");
+		}
+		return test;
 	}
 
 }
