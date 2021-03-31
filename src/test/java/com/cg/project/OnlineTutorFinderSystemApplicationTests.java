@@ -17,6 +17,10 @@ import com.cg.project.entity.Booking;
 import com.cg.project.repository.BookingDao;
 import com.cg.project.service.BookingService;
 
+/**
+ * @author sreya
+ *
+ */
 @SpringBootTest
 class OnlineTutorFinderSystemApplicationTests {
 
@@ -25,7 +29,7 @@ class OnlineTutorFinderSystemApplicationTests {
 	@Autowired
 	BookingService service;
 
-	@Test
+	@Test 
 	void testMakeBooking() {
 		Booking booking = new Booking("dummyname", "parentdummy", "subject", "Parenthnedummy", "Tutorphonedummy",
 				"grade");

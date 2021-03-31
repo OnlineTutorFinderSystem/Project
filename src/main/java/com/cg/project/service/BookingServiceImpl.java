@@ -22,6 +22,9 @@ public class BookingServiceImpl implements BookingService {
 		return dao.save(booking);
 	}
 
+	/**
+	 *@author sreyash
+	 */
 	@Override
 	public Booking updateBooking(Booking booking) {
 		// TODO Auto-generated method stub
@@ -31,7 +34,7 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	public void deleteBooking(int bookingID) {
 		// TODO Auto-generated method stub
-		
+		dao.deleteById(bookingID);
 	}
 
 	@Override

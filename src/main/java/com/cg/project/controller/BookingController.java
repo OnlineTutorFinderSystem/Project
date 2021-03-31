@@ -17,13 +17,17 @@ import com.cg.project.entity.Booking;
 import com.cg.project.exceptions.GlobalException;
 import com.cg.project.service.BookingServiceImpl;
 
+/**
+ * @author sreya
+ *
+ */
 @RestController
 @RequestMapping("/booking")
 public class BookingController {
 
 	@Autowired
 	BookingServiceImpl service;
-
+	
 	@GetMapping("/getBookingById/{id}")
 	public Optional<Booking> getBookingById(@PathVariable("id") int id) {
 
@@ -34,21 +38,22 @@ public class BookingController {
 
 		return test;
 	}
-
+	// To make a new bookng
 	@PostMapping("/makeBooking")
 	public Booking makeBooking(@RequestBody Booking booking) {
 		Booking test = service.makeBooking(booking);
 		if (test.getPname() == null || test.getPphone() == null || test.getSub() == null) {
-			throw new GlobalException("Enter values for Parent name and phone and salary.");
+			throw new GlobalException("Enter values for pname, Pphone, subject");
 		}
 		return test;
 	}
-
+	//To update a booking
 	@PutMapping("/updateBooking")
 	public Booking updateBooking(@RequestBody Booking booking) {
 		Booking test = service.updateBooking(booking);
 		if (test.getBookingID() == 0 || test.getPname() == null || test.getPphone() == null || test.getSub() == null) {
 			throw new GlobalException("Id not present or enter the body correctly.");
+
 		}
 		Optional<Booking> test1 = service.getBookingById(test.getBookingID());
 		if (test1.isEmpty()) {
@@ -56,7 +61,7 @@ public class BookingController {
 		}
 		return test;
 	}
-
+	// To delete a booking using Booking Id
 	@DeleteMapping("/deleteBooking/{id}")
 	public void deleteBooking(@PathVariable("id") int bookingID) {
 		Optional<Booking> test = service.getBookingById(bookingID);
@@ -65,7 +70,7 @@ public class BookingController {
 		}
 		service.deleteBooking(bookingID);
 	}
-
+	// To fetch data of particular booking using Parent's name  
 	@GetMapping("/getBookingByPname/{parentname}")
 	public List<Booking> getBookingByPname(@PathVariable("parentname") String pname) {
 		List<Booking> test = service.getBookingByPname(pname);
@@ -75,7 +80,7 @@ public class BookingController {
 
 		return test;
 	}
-
+	// To fetch data of particular booking using Subject name 
 	@GetMapping("/getBookingBysub/{subject}")
 	public List<Booking> getBookingBysub(@PathVariable("subject") String sub) {
 
@@ -86,7 +91,7 @@ public class BookingController {
 
 		return test;
 	}
-
+	// To fetch all the data from the table 
 	@GetMapping("/getAllBookings")
 	public List<Booking> getAllBookings() {
 		List<Booking> test = service.getAllBookings();

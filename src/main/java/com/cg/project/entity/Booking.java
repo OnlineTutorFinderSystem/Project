@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * @author sreya
+ *
+ */
 @Entity
 public class Booking {
 	@Id
@@ -19,7 +23,7 @@ public class Booking {
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
-
+	//auto generated constructor 
 	public Booking(int bookingID, String tname, String pname, String sub, String pphone, String tphone, String grade) {
 		super();
 		this.bookingID = bookingID;
@@ -44,7 +48,7 @@ public class Booking {
 	}
 
 	public void setTname(String tname) {
-		tname = tname;
+		this.tname = tname;
 	}
 
 	public String getPname() {
@@ -52,7 +56,7 @@ public class Booking {
 	}
 
 	public void setPname(String pname) {
-		pname = pname;
+		this.pname = pname;
 	}
 
 	public String getSub() {
@@ -68,7 +72,7 @@ public class Booking {
 	}
 
 	public void setPphone(String pphone) {
-		pphone = pphone;
+		this.pphone = pphone;
 	}
 
 	public String getTphone() {
@@ -81,7 +85,7 @@ public class Booking {
 	}
 
 	public void setTphone(String tphone) {
-		tphone = tphone;
+		this.tphone = tphone;
 	}
 
 	public String getGrade() {
@@ -91,7 +95,7 @@ public class Booking {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-
+	//constructor without booking Id field
 	public Booking(String tname, String pname, String sub, String pphone, String tphone, String grade) {
 		super();
 		this.tname = tname;

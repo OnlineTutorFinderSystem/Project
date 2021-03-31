@@ -8,6 +8,6 @@ public class OnlineTutorFinderSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineTutorFinderSystemApplication.class, args);
+	
 	}
-
 }
