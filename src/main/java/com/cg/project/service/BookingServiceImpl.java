@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.cg.project.entity.Booking;
 import com.cg.project.repository.BookingDao;
 
-
 @Service
 public class BookingServiceImpl implements BookingService {
 
@@ -23,37 +22,44 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	/**
-	 *@author sreyash
+	 * @author sreyash
 	 */
+
+	// calling dao method to save booking in table
 	@Override
 	public Booking updateBooking(Booking booking) {
 		// TODO Auto-generated method stub
 		return dao.save(booking);
 	}
 
+	// calling dao method to delete booking by id in table
 	@Override
 	public void deleteBooking(int bookingID) {
 		// TODO Auto-generated method stub
 		dao.deleteById(bookingID);
 	}
 
+	// calling dao method to fetch booking by id from table
 	@Override
 	public Optional<Booking> getBookingById(int id) {
 		// TODO Auto-generated method stub
-		return dao.findById (id);
+		return dao.findById(id);
 	}
+	// calling dao method to fetch booking by parent name from table
 
 	@Override
 	public List<Booking> getBookingByPname(String pname) {
 		// TODO Auto-generated method stub
 		return dao.findBypname(pname);
 	}
+	// calling dao method to fetch booking by subject from table
 
 	@Override
 	public List<Booking> getBookingBysub(String sub) {
 		// TODO Auto-generated method stub
 		return dao.findBysub(sub);
 	}
+	// calling dao method to fetch all bookings from table
 
 	@Override
 	public List<Booking> getAllBookings() {

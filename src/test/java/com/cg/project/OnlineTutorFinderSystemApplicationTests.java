@@ -29,7 +29,8 @@ class OnlineTutorFinderSystemApplicationTests {
 	@Autowired
 	BookingService service;
 
-	@Test 
+	// Method to make a new booking
+	@Test
 	void testMakeBooking() {
 		Booking booking = new Booking("dummyname", "parentdummy", "subject", "Parenthnedummy", "Tutorphonedummy",
 				"grade");
@@ -38,6 +39,7 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertEquals("dummyname", result.getTname());
 	}
 
+	// Method to update an existing booking
 	@Test
 	void testUpdateBooking() {
 		Booking booking = new Booking(1, "updateDummy", "updateParentdummy", "UpdateSubject", "updateParentPhDummy",
@@ -48,6 +50,7 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertEquals("updateParentdummy", result.getPname());
 	}
 
+	// method to delete the booking
 	@Test
 	void testDeleteBooking() {
 		Booking booking = new Booking(2, "updateDummy", "updateParentdummy", "UpdateSubject", "updateParentPhDummy",
@@ -57,6 +60,7 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertEquals(Optional.empty(), deletedBooking);
 
 	}
+	// method to find a booking by Booking Id
 
 	@Test
 	void testFindBooking() {
@@ -67,6 +71,7 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertTrue(result.isPresent());
 	}
 
+	// method to find a booking by Parent name
 	@Test
 	void testFindBypname() {
 		Booking booking = new Booking(3, "updateDummy", "updateParentdummy", "UpdateSubject", "updateParentPhDummy",
@@ -78,6 +83,7 @@ class OnlineTutorFinderSystemApplicationTests {
 		assertEquals(result, list);
 	}
 
+	// method to find a booking by subject
 	@Test
 	void testFindBysub() {
 		Booking booking = new Booking(4, "updateDummy", "updateParentdummy", "UpdateSubject", "updateParentPhDummy",
