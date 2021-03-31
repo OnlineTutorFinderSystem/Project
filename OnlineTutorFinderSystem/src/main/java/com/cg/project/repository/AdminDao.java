@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import com.cg.project.entity.Admin;
 
  
+/**
+ * @author rahul
+ *
+ */
 @Repository
 public interface AdminDao extends JpaRepository<Admin,Integer>{
 public List<Admin> findByAdminName(String adminName);

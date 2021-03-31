@@ -1,14 +1,17 @@
 package com.cg.project;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+/*
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;*/
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,8 +20,7 @@ import com.cg.project.entity.Admin;
 import com.cg.project.repository.AdminDao;
 import com.cg.project.service.AdminService;
 
-@SpringBootTest
-
+ @SpringBootTest
 class OnlineTutorFinderSystemApplicationTests {
 	@MockBean
 	AdminDao dao;
