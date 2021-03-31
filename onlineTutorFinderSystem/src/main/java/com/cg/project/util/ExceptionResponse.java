@@ -2,6 +2,10 @@ package com.cg.project.util;
 
 import java.util.Date;
 
+/**
+ * @author NITIN
+ *
+ */
 public class ExceptionResponse {
 
 	private Date timestamp;

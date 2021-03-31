@@ -6,6 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.cg.project.entity.EBook;
 
+/**
+ * @author NITIN
+ *
+ */
 @Repository
 public interface EBookDao extends JpaRepository<EBook, Integer> {
 

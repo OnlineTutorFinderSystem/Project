@@ -13,6 +13,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static com.google.common.base.Predicates.or;
 
+/**
+ * @author NITIN
+ *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -28,7 +32,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("employeeCRUD with dataJPA").description("sprint 1 project")
+		return new ApiInfoBuilder().title("EbookCRUD with dataJPA").description("sprint 1 project")
 				.termsOfServiceUrl("http://www.google.com").license("NA").licenseUrl("NA").version("1.0").build();
 	}
 

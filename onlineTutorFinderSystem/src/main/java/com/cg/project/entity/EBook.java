@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author NITIN
+ *
+ */
 @Entity
 @Table(name = "PROJECT")
 public class EBook {

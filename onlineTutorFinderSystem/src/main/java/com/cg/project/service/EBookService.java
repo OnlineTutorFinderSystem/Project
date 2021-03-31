@@ -5,6 +5,10 @@ import java.util.Optional;
 
 import com.cg.project.entity.EBook;
 
+/**
+ * @author NITIN
+ *
+ */
 public interface EBookService {
 
 	EBook addEBook(EBook ebook);

@@ -17,6 +17,10 @@ import com.cg.project.entity.EBook;
 import com.cg.project.exceptions.GlobalException;
 import com.cg.project.service.EBookServiceImpl;
 
+/**
+ * @author NITIN
+ *
+ */
 @RestController
 @RequestMapping("/EBook") // optional
 public class EBookController {
@@ -24,7 +28,8 @@ public class EBookController {
 	@Autowired
 	EBookServiceImpl service;
 
-	@GetMapping("/getEBook/{EBookid}")
+	@GetMapping("/getEBook/{EBookid}") // this method is basically used to get the ebooks based on corresponding
+										// ebookid
 	public Optional<EBook> getEBookById(@PathVariable("EBookid") int ebookId) {
 
 		Optional<EBook> test = service.getEBookById(ebookId);
@@ -35,7 +40,7 @@ public class EBookController {
 		return test;
 	}
 
-	@PostMapping("/addTrainee")
+	@PostMapping("/addEBook") // this method will add the ebooks by giving default ebookid
 	public EBook addEBook(@RequestBody EBook ebook)// get,post,put,delete
 	{
 		EBook test = service.addEBook(ebook);
@@ -49,7 +54,7 @@ public class EBookController {
 
 	}
 
-	@PutMapping("/updateEBook")
+	@PutMapping("/updateEBook") // this method will update the data by selecting particular id
 	public EBook updateEBook(@RequestBody EBook ebook)// get,post,put,delete
 	{
 		EBook test = service.updateEBook(ebook);
@@ -65,7 +70,7 @@ public class EBookController {
 		return test;
 	}
 
-	@DeleteMapping("/deleteEBook/{EBookid}")
+	@DeleteMapping("/deleteEBook/{EBookid}") // this method will delete the record
 	public void deleteEBook(@PathVariable("EBookid") int ebookId)// get,post,put,delete
 	{
 		Optional<EBook> test = service.getEBookById(ebookId);
@@ -77,7 +82,7 @@ public class EBookController {
 
 	}
 
-	@GetMapping("/getAllEBook")
+	@GetMapping("/getAllEBook") // this method will display all the present records in the table
 	public List<EBook> fetchAllEBook()// get,post,put,delete
 	{
 		List<EBook> test = service.getAllEBook();
@@ -89,7 +94,7 @@ public class EBookController {
 		return test;
 	}
 
-	@GetMapping("/getAllEBookName/{EBookName}")
+	@GetMapping("/getAllEBookName/{EBookName}") // this methd will display all the ebooks based on ebookname
 	public List<EBook> fetchAllEBookByName(@PathVariable("EBookName") String ebookName)// get,post,put,delete
 	{
 		List<EBook> test = service.getEBookByName(ebookName);
@@ -101,7 +106,7 @@ public class EBookController {
 
 	}
 
-	@GetMapping("/getAllEBookPrice/{EBookPrice}")
+	@GetMapping("/getAllEBookPrice/{EBookPrice}") // this method will display all the ebooks based on price
 	public List<EBook> fetchAllEBookByPrice(@PathVariable("EBookPrice") int ebookPrice) {
 
 		List<EBook> test = service.getEBookByPrice(ebookPrice);

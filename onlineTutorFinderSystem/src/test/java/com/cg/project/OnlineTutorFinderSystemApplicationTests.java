@@ -17,6 +17,10 @@ import com.cg.project.entity.EBook;
 import com.cg.project.repository.EBookDao;
 import com.cg.project.service.EBookService;
 
+/**
+ * @author NITIN
+ *
+ */
 @SpringBootTest
 class OnlineTutorFinderSystemApplicationTests {
 	@MockBean
@@ -45,7 +49,6 @@ class OnlineTutorFinderSystemApplicationTests {
 	@Test
 	void testDeleteEBook() {
 		EBook EBook = new EBook(1, "maths", 400, "XII", 2002, "SURESH");
-		service.addEBook(EBook);
 		service.removeEBook(1);
 		Optional<EBook> deletedEBook = service.getEBookById(1);
 		assertEquals(Optional.empty(), deletedEBook);
@@ -63,10 +66,10 @@ class OnlineTutorFinderSystemApplicationTests {
 
 	@Test
 	void testFindEBookByName() {
-		EBook EBook = new EBook(3, "HINDI", 600, "X", 2004, "PAWAN");
+		EBook EBook = new EBook(3, "hindi", 600, "X", 2004, "PAWAN");
 		List<EBook> list = new ArrayList<EBook>();
 		list.add(EBook);
-		when(dao.findByebookName("HINDI")).thenReturn(list);
+		when(dao.findByebookName("hindi")).thenReturn(list);
 		List<EBook> result = service.getEBookByName(EBook.getEBookName());
 		assertEquals(result, list);
 	}

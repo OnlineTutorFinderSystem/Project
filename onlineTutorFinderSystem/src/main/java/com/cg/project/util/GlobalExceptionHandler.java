@@ -10,8 +10,11 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.cg.project.exceptions.GlobalException;
-import com.cg.project.exceptions.InvalidAuthentication;
 
+/**
+ * @author NITIN
+ *
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -23,18 +26,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 				req.getDescription(false), HttpStatus.NOT_ACCEPTABLE.getReasonPhrase());
 
 		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.NOT_ACCEPTABLE);
-
-	}
-
-	@ExceptionHandler(InvalidAuthentication.class)
-	public final ResponseEntity<ExceptionResponse> handleInvalidAuthentication(InvalidAuthentication ex,
-			WebRequest req) {
-
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
-
-				req.getDescription(false), HttpStatus.UNAUTHORIZED.getReasonPhrase());
-
-		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.UNAUTHORIZED);
 
 	}
 
